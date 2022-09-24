@@ -3,8 +3,8 @@ import Image from 'next/future/image'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex justify-center">
-      <Image src="/portal.png" className="h-fit w-auto" alt="Rick and Morty Logo" width={700} height={684} priority={true} />
+    <div className="flex-1 flex justify-center items-center">
+      <Image src="/portal.png" className="px-7 md:px-0" alt="Rick and Morty Logo" width={700} height={684} priority={true} />
     </div>
   )
 }
