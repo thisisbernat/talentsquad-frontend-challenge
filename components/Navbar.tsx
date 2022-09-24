@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="text-white h-6 w-6 md:hidden absolute right-5 top-3.5" onClick={toggleMenu}><Bars3Icon /></div>
-        <div className={`flex flex-col md:flex-row items-center gap-7 text-sm font-semibold pt-5 md:pt-1 ${isMenuOn ? 'visible' : 'invisible'} transition-all ease-in-out duration-100`}>
+        <div className={`flex flex-col md:flex-row items-center gap-7 text-sm font-semibold pt-5 md:pt-1 ${isMenuOn ? 'visible' : 'invisible'} md:visible transition-all ease-in-out duration-100`}>
           <Link href="/">
             <a onClick={toggleMenu} className="hover:text-lime-600 hover:underline underline-offset-4">Home</a>
           </Link>
