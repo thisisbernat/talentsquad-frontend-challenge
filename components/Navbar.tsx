@@ -20,7 +20,7 @@ const Navbar = () => {
             <span className="ml-2 self-center whitespace-nowrap text-xl font-bold subpixel-antialiased">Rick and Morty</span>
           </div>
         </Link>
-        <div className="text-white h-6 w-6 md:hidden absolute right-3 top-3"><Bars3Icon /></div>
+        <div className="text-white h-6 w-6 md:hidden absolute right-4 top-4"><Bars3Icon /></div>
         <div className="flex flex-col md:flex-row items-center gap-7 text-sm font-semibold pt-5 md:pt-1">
           <Link href="/">
             <a className="hover:text-lime-600 hover:underline underline-offset-4">Home</a>
