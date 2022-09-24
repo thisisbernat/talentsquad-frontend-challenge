@@ -6,7 +6,7 @@ import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
 const Card = () => {
   return (
     <div className="flex flex-col sm:flex-row mx-auto sm:max-h-full bg-zinc-700 rounded-xl relative">
-      <Image src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" className="min-w-full sm:min-w-0 rounded-t-xl sm:rounded-none sm:rounded-l-xl w-52" alt="Rick Sanchez" height="300" width="300" />
+      <Image src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" className="min-w-full sm:min-w-0 rounded-t-xl sm:rounded-none sm:rounded-l-xl w-52" alt="Rick Sanchez" height="300" width="300" priority={true} />
       <div className="flex flex-col justify-between text-white py-3 px-4">
         <div>
           <Link href="#">
