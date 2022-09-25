@@ -1,18 +1,28 @@
 import type { NextPage } from 'next'
 import CharactersGrid from '../components/CharactersGrid'
 import Card from '../components/Card'
+import { GetStaticProps } from 'next'
+import { GetCharacterResults, Character } from '../types'
 
-const Characters: NextPage = () => {
+const Characters: NextPage<{ characters: Character[] }> = ({ characters }) => {
+
   return (
     <CharactersGrid>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {characters.map(character => {
+        return <Card />
+      })}
     </CharactersGrid>
   )
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const response = await fetch("https://rickandmortyapi.com/api/character")
+  const { results }: GetCharacterResults = await response.json()
+  return {
+    props: {
+      characters: results
+    }
+  }
 }
 
 export default Characters
