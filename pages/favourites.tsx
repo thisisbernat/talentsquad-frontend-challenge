@@ -7,13 +7,13 @@ import { AuthContext } from '../context/auth.context'
 
 const Favourites: NextPage<{ characters: Character[] }> = ({ characters }) => {
   const { isLoggedIn, checkLogStatus } = useContext(AuthContext)
-  const [favourites, setFavourites] = useState<any>([1])
+  const [favourites, setFavourites] = useState<any>([0])
 
   useEffect(() => {
     if (isLoggedIn) {
       const favArray = window.localStorage.getItem("r&m-favourites")
       if (favArray) {
-        const evalArray:number[] = eval(favArray)
+        const evalArray: number[] = eval(favArray)
         setFavourites(evalArray)
       }
     }
@@ -21,17 +21,19 @@ const Favourites: NextPage<{ characters: Character[] }> = ({ characters }) => {
 
   if (isLoggedIn) {
     return (
-      <CharactersGrid>
-        {characters.map(character => {
-          if (favourites.includes(character.id)) {
-            return <Card key={character.id} character={character} />
-          }
-          
-        })}
-      </CharactersGrid>
+      <>
+        <h1 className="text-4xl font-bold text-white text-center mt-2">Favourites</h1>
+        <CharactersGrid>
+          {characters.map(character => {
+            if (favourites.includes(character.id)) {
+              return <Card key={character.id} character={character} />
+            }
+          })}
+        </CharactersGrid>
+      </>
     )
   } else {
-    return <div>nothing to see here</div>
+    return <h1 className="text-4xl font-bold text-white text-center mt-40">Must be logged in to save favourites</h1>
   }
 
 }
