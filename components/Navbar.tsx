@@ -39,7 +39,7 @@ const Navbar = () => {
           <Link href="/">
             <a onClick={toggleMenu} className="hover:text-lime-600 hover:underline underline-offset-4">Home</a>
           </Link>
-          <Link href="/characters">
+          <Link href="/characters/page/1">
             <a onClick={toggleMenu} className="hover:text-lime-600 hover:underline underline-offset-4">All Characters</a>
           </Link>
           <Link href="/favourites">
