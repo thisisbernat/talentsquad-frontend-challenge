@@ -1,27 +1,36 @@
-# Next.js + Tailwind CSS Example
+# Rick and Morty API - Next.js app
+This a frontend app build with Next.js and TypeScript that consumes the [Rick and Morty API](https://rickandmortyapi.com/). It displays all the characters with pagination, a detailed view for each character and the possibility to mark them as favourites.
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This app is deployed at https://rickandmorty-omega-seven.vercel.app/
 
-## Deploy your own
+## Background
+The main objective of this project was to keep working with Next.js and TypeScript. It is also my submission for Barcelona's Talent Squad Frontend Challenge.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## 🛫 How to run the app locally
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+git clone https://github.com/thisisbernat/talentsquad-frontend-challenge
+cd talentsquad-frontend-challenge
+npm i
+npm run build
+npm run start
 ```
+The app will be available at http://localhost:3000
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Stack
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/): 
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Contact info
+
+You can contact me on:
+- [GitHub](https://github.com/thisisbernat)
+- [LinkedIn](https://www.linkedin.com/in/bernatescarra/)
+
+## License
+This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
+
