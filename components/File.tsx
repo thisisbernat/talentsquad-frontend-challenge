@@ -35,7 +35,7 @@ const File: NextPage<{ character: Character, firstSeen: string, lastSeen: string
               <span className="subpixel-antialiased text-white">{lastSeen}</span>
             </div>
           </div>
-          <Heart size={'10'} charId={character.id} />
+          <Heart size={'6'} charId={character.id} />
         </div>
       </div>
     </div>
