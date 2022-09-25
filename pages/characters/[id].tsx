@@ -1,6 +1,6 @@
 import { Character } from '../../types'
 import File from '../../components/File'
-import { EPISODE_COUNT } from '../../utils/utils'
+import { CHAR_COUNT } from '../../utils/utils'
 
 const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Character, firstSeen: string, lastSeen: string }) => {
   return (
@@ -10,7 +10,7 @@ const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Chara
 
 export const getStaticPaths = async () => {
   return {
-    paths: Array.from(Array(EPISODE_COUNT).keys()).map(element => {
+    paths: Array.from(Array(CHAR_COUNT).keys()).map(element => {
       return { params: { id: String(element + 1) } }
     }),
     fallback: false

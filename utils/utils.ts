@@ -1,5 +1,5 @@
-export const EPISODE_COUNT = 826
+export const CHAR_COUNT = 826
 
 export const getRandomEpisodeId = () => {
-  return Math.floor(Math.random() * (EPISODE_COUNT)) + 1
+  return Math.floor(Math.random() * (CHAR_COUNT)) + 1
 }
