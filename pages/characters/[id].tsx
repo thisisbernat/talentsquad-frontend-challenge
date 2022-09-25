@@ -1,5 +1,6 @@
-import { GetCharacterResults, Character } from '../../types'
+import { Character } from '../../types'
 import File from '../../components/File'
+import { EPISODE_COUNT } from '../../utils/utils'
 
 const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Character, firstSeen: string, lastSeen: string }) => {
   return (
@@ -8,12 +9,9 @@ const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Chara
 }
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`https://rickandmortyapi.com/api/character`)
-  const { results }: GetCharacterResults = await response.json()
-
   return {
-    paths: results.map((character) => {
-      return { params: { id: String(character.id) } }
+    paths: Array.from(Array(EPISODE_COUNT).keys()).map(element => {
+      return { params: { id: String(element + 1) } }
     }),
     fallback: false
   }
