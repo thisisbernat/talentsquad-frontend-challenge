@@ -30,7 +30,7 @@ const Card = ({ character }: CharacterProps) => {
           <span className="text-gray-400 font-semibold">First seen in:</span>
           <span>------</span>
         </div>
-        <Heart size={'6'} active={true} />
+        <Heart size={'6'} charId={character.id} />
       </div>
     </div>
   )
