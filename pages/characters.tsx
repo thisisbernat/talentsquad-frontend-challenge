@@ -16,8 +16,8 @@ const Characters: NextPage<{ characters: Character[] }> = ({ characters }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await fetch("https://rickandmortyapi.com/api/character")
-  const { results }: GetCharacterResults = await response.json()
+  const charactersRes = await fetch("https://rickandmortyapi.com/api/character")
+  const { results }: GetCharacterResults = await charactersRes.json()
   return {
     props: {
       characters: results
