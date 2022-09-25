@@ -3,15 +3,20 @@ import CharactersGrid from '../../../components/CharactersGrid'
 import Card from '../../../components/Card'
 import { GetCharacterResults, Character } from '../../../types'
 import { pageParamsArray } from '../../../utils/utils'
+import Pagination from '../../../components/Pagination'
 
 const CharactersPage: NextPage<{ characters: Character[] }> = ({ characters }) => {
 
   return (
-    <CharactersGrid>
-      {characters.map(character => {
-        return <Card key={character.id} character={character} />
-      })}
-    </CharactersGrid>
+    <>
+      <Pagination />
+      <CharactersGrid>
+        {characters.map(character => {
+          return <Card key={character.id} character={character} />
+        })}
+      </CharactersGrid>
+      <Pagination />
+    </>
   )
 }
 
