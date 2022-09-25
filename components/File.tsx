@@ -1,6 +1,5 @@
 import Image from 'next/future/image'
-import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline'
-import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
+import Heart from './Heart'
 
 const File = () => {
   return (
@@ -38,7 +37,7 @@ const File = () => {
             </div>
           </div>
           <div className="absolute bottom-2 right-2">
-            <HeartIconOutline className="text-white h-10 w-10" />
+            <Heart size={10} active={false} />
           </div>
         </div>
       </div>
