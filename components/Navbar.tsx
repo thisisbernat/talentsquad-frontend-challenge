@@ -1,12 +1,16 @@
 import Image from 'next/future/image'
 import Link from 'next/link'
-import { useState } from 'react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect, useContext } from 'react'
+import { Bars3Icon, XMarkIcon, ArrowRightOnRectangleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 import Modal from './Modal'
+import { getRandomEpisodeId } from '../utils/utils'
+import { AuthContext } from '../context/auth.context'
 
 const Navbar = () => {
+  const { isLoggedIn, logOut, checkLogStatus } = useContext(AuthContext)
   const [isModalOn, setModalOn] = useState(false)
   const [isMenuOn, setMenuOn] = useState(false)
+  const [randomId, setRandomId] = useState(1)
 
   const toggleModal = () => {
     setModalOn(!isModalOn)
@@ -15,6 +19,11 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOn(!isMenuOn)
   }
+
+  useEffect(() => {
+    setRandomId(getRandomEpisodeId())
+    checkLogStatus()
+  }, [])
 
   return (
     <>
@@ -36,10 +45,13 @@ const Navbar = () => {
           <Link href="/favourites">
             <a onClick={toggleMenu} className="hover:text-lime-600 hover:underline underline-offset-4">Favourites</a>
           </Link>
-          <Link href="/random">
+          <Link href={`/characters/${randomId}`}>
             <a onClick={toggleMenu} className="hover:text-lime-600 hover:underline underline-offset-4">Random character</a>
           </Link>
-          <button className="rounded-full bg-lime-600 hover:bg-lime-700 py-1 px-3 font-semibold" onClick={() => {toggleModal(); toggleMenu()}}>Log in</button>
+          {isLoggedIn ?
+            <button className="rounded-full bg-lime-600 hover:bg-lime-700 py-1 px-3 font-semibold flex items-center gap-1" onClick={() => { logOut(); toggleMenu() }}>Log out <ArrowRightOnRectangleIcon className="h-4 w-auto" /></button>
+            :
+            <button className="rounded-full bg-lime-600 hover:bg-lime-700 py-1 px-3 font-semibold flex items-center gap-1" onClick={() => { toggleModal(); toggleMenu() }}>Log in <ArrowLeftOnRectangleIcon className="h-4 w-auto" /></button>}
           <div className="bg-teal-700 w-full h-0.5 md:hidden"></div>
         </div>
       </div>
