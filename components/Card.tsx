@@ -25,18 +25,16 @@ const StatusIndicator = (status: {status: Status}) => {
 
 const Card = ({character}: CharacterProps ) => {
   return (
-    <div className="flex flex-col sm:flex-row mx-auto sm:max-h-full bg-zinc-700 rounded-xl relative md:w-full">
-      <Image src={character.image} className="min-w-full sm:min-w-0 rounded-t-xl sm:rounded-none sm:rounded-l-xl w-52" alt={character.name} height="300" width="300" priority={true} />
+    <div className="flex flex-col sm:flex-row min-w-min lg:min-w-full mx-12 sm:mx-24 lg:mx-auto bg-zinc-700 rounded-xl relative">
+      <Image src={character.image} className="min-w-full sm:min-w-0 rounded-t-xl sm:rounded-none sm:rounded-l-xl w-52 object-cover" alt={character.name} height="300" width="300" priority={true} />
       <div className="flex flex-col justify-between text-white py-3 px-4">
-        <div>
-          <Link href="#">
+        <div className="max-w-fit">
+          <Link href={`/characters/${character.id}`}>
             <a className="text-white hover:text-orange-400 text-3xl font-black">{character.name}</a>
           </Link>
           <div className="flex items-center gap-1 font-medium">
             <StatusIndicator status={character.status}/>
-            <span>{character.status}</span>
-            -
-            <span>{character.species}</span>
+            <span>{character.status}</span> - <span>{character.species}</span>
           </div>
         </div>
         <div className="flex flex-col">
