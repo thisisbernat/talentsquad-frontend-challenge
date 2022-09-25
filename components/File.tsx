@@ -36,9 +36,7 @@ const File = () => {
               <span className="subpixel-antialiased">Pilot</span>
             </div>
           </div>
-          <div className="absolute bottom-2 right-2">
-            <Heart size={10} active={false} />
-          </div>
+          <Heart size={'10'} active={true} />
         </div>
       </div>
     </div>

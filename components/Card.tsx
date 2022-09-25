@@ -7,7 +7,7 @@ interface CharacterProps {
   character: Character
 }
 
-const StatusIndicator = (status: {status: Status}) => {
+const StatusIndicator = (status: { status: Status }) => {
   switch (status.status) {
     case Status.Alive:
       return <div className="h-3 w-3 rounded-full bg-lime-500"></div>
@@ -16,14 +16,14 @@ const StatusIndicator = (status: {status: Status}) => {
       return <div className="h-3 w-3 rounded-full bg-red-700"></div>
       break
     case Status.Unknown:
-       return <div className="h-3 w-3 rounded-full bg-neutral-500"></div>
-       break
+      return <div className="h-3 w-3 rounded-full bg-neutral-500"></div>
+      break
     default:
       return <div className="h-3 w-3 rounded-full"></div>
   }
 }
 
-const Card = ({character}: CharacterProps ) => {
+const Card = ({ character }: CharacterProps) => {
   return (
     <div className="flex flex-col sm:flex-row min-w-min lg:min-w-full mx-12 sm:mx-24 lg:mx-auto bg-zinc-700 rounded-xl relative">
       <Image src={character.image} className="min-w-full sm:min-w-0 rounded-t-xl sm:rounded-none sm:rounded-l-xl w-52 object-cover" alt={character.name} height="300" width="300" priority={true} />
@@ -33,7 +33,7 @@ const Card = ({character}: CharacterProps ) => {
             <a className="text-white hover:text-orange-400 text-3xl font-black">{character.name}</a>
           </Link>
           <div className="flex items-center gap-1 font-medium">
-            <StatusIndicator status={character.status}/>
+            <StatusIndicator status={character.status} />
             <span>{character.status}</span> - <span>{character.species}</span>
           </div>
         </div>
@@ -45,9 +45,7 @@ const Card = ({character}: CharacterProps ) => {
           <span className="text-gray-400 font-semibold">First seen in:</span>
           <span>------</span>
         </div>
-        <div className="absolute bottom-2 right-2">
-          <Heart size={7} active={true} />
-        </div>
+        <Heart size={'6'} active={true} />
       </div>
     </div>
   )
