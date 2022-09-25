@@ -1,17 +1,10 @@
 import { createContext, useState, ReactNode } from 'react'
 
-interface AuthState {
-  isLoggedIn: boolean
-  logIn: (username: string) => void
-  logOut: () => void
-  checkLogStatus: () => void
-}
-
 const initialState = {
   isLoggedIn: false,
-  logIn: (username: string) => {},
-  logOut: () => {},
-  checkLogStatus: () => {},
+  logIn: (username: string) => { },
+  logOut: () => { },
+  checkLogStatus: () => { }
 }
 
 interface Props {
@@ -22,6 +15,7 @@ const AuthContext = createContext(initialState)
 
 const AuthProvider = ({ children }: Props) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+
   const logIn = (username: string) => {
     setIsLoggedIn(true)
     window.localStorage.setItem("r&m-username", username)
@@ -41,8 +35,8 @@ const AuthProvider = ({ children }: Props) => {
   }
 
   return (
-    <AuthContext.Provider value={{isLoggedIn, logIn, logOut, checkLogStatus}}>
-    {children}
+    <AuthContext.Provider value={{ isLoggedIn, logIn, logOut, checkLogStatus }}>
+      {children}
     </AuthContext.Provider>
   )
 }
