@@ -8,16 +8,16 @@ const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Chara
   )
 }
 
-export const getStaticPaths = async () => {
-  return {
-    paths: Array.from(Array(CHAR_COUNT).keys()).map(element => {
-      return { params: { id: String(element + 1) } }
-    }),
-    fallback: false
-  }
-}
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: Array.from(Array(CHAR_COUNT).keys()).map(element => {
+//       return { params: { id: String(element + 1) } }
+//     }),
+//     fallback: true
+//   }
+// }
 
-export const getStaticProps = async ({ params }: { params: { id: string } }) => {
+export const getServerSideProps = async ({ params }: { params: { id: string } }) => {
   const characterRes = await fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
   const character = await characterRes.json()
   const { episode }: { episode: string[] } = character
