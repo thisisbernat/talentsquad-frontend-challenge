@@ -9,7 +9,7 @@ const Characters: NextPage<{ characters: Character[] }> = ({ characters }) => {
   return (
     <CharactersGrid>
       {characters.map(character => {
-        return <Card />
+        return <Card key={character.id} character={character} />
       })}
     </CharactersGrid>
   )
