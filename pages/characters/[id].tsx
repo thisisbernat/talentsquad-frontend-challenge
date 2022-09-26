@@ -1,23 +1,24 @@
+import type { NextPage } from 'next'
 import { Character } from '../../types'
 import File from '../../components/File'
 import { CHAR_COUNT } from '../../utils/utils'
 
-const CharacterDetails = ({ character, firstSeen, lastSeen }: { character: Character, firstSeen: string, lastSeen: string }) => {
+const CharacterDetails: NextPage<{ character: Character, firstSeen: string, lastSeen: string }> = ({ character, firstSeen, lastSeen }) => {
   return (
     <File character={character} firstSeen={firstSeen} lastSeen={lastSeen} />
   )
 }
 
-// export const getStaticPaths = async () => {
-//   return {
-//     paths: Array.from(Array(CHAR_COUNT).keys()).map(element => {
-//       return { params: { id: String(element + 1) } }
-//     }),
-//     fallback: true
-//   }
-// }
+export const getStaticPaths = async () => {
+  return {
+    paths: Array.from(Array(CHAR_COUNT).keys()).map(element => {
+      return { params: { id: String(element + 1) } }
+    }),
+    fallback: true
+  }
+}
 
-export const getServerSideProps = async ({ params }: { params: { id: string } }) => {
+export const getStaticProps = async ({ params }: { params: { id: string } }) => {
   const characterRes = await fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
   const character = await characterRes.json()
   const { episode }: { episode: string[] } = character

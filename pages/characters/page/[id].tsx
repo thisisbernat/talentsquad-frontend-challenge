@@ -11,7 +11,7 @@ const CharactersPage: NextPage<{ characters: Character[] }> = ({ characters }) =
     <>
       <Pagination />
       <CharactersGrid>
-        {characters.map(character => {
+        {characters?.map(character => {
           return <Card key={character.id} character={character} />
         })}
       </CharactersGrid>
@@ -20,14 +20,14 @@ const CharactersPage: NextPage<{ characters: Character[] }> = ({ characters }) =
   )
 }
 
-// export const getStaticPaths = async () => {
-//   return {
-//     paths: pageParamsArray,
-//     fallback: true
-//   }
-// }
+export const getStaticPaths = async () => {
+  return {
+    paths: pageParamsArray,
+    fallback: true
+  }
+}
 
-export const getServerSideProps = async ({ params }: { params: { id: string } }) => {
+export const getStaticProps = async ({ params }: { params: { id: string } }) => {
   const charactersRes = await fetch(`https://rickandmortyapi.com/api/character/?page=${params.id}`)
   const { results }: GetCharacterResults = await charactersRes.json()
   return {
