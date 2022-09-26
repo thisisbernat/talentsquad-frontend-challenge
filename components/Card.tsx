@@ -19,7 +19,7 @@ const Card = ({ character }: CharacterProps) => {
           </Link>
           <div className="flex items-center gap-1 font-medium">
             <StatusIndicator status={character.status} />
-            <span>{character.status}</span> - <span>{character.species}</span>
+            <span>{character.status}</span>
           </div>
         </div>
         <div className="flex flex-col">
@@ -27,8 +27,8 @@ const Card = ({ character }: CharacterProps) => {
           <span>{character.location.name}</span>
         </div>
         <div className="flex flex-col">
-          <span className="text-gray-400 font-semibold">First seen in:</span>
-          <span>------</span>
+          <span className="text-gray-400 font-semibold">Species:</span>
+          <span>{character.species}</span>
         </div>
         <Heart size={'6'} charId={character.id} />
       </div>
