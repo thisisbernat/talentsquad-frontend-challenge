@@ -1,20 +1,31 @@
 import type { NextPage, GetServerSideProps } from 'next'
 import CharactersGrid from '../components/CharactersGrid'
 import Card from '../components/Card'
-import { GetCharacterResults, Character } from '../types'
+import { Character } from '../types'
 import { useEffect, useContext, useState } from 'react'
 import { AuthContext } from '../context/auth.context'
 
-const Favourites: NextPage<{ characters: Character[] }> = ({ characters }) => {
-  const { isLoggedIn, checkLogStatus } = useContext(AuthContext)
-  const [favourites, setFavourites] = useState<any>([0])
+const Favourites: NextPage = () => {
+  const { isLoggedIn } = useContext(AuthContext)
+  const [favChars, setFavChars] = useState<Character[]>([])
+
+  const getCharacters = async (charId: number) => {
+    try {
+      const charactersRes = await fetch(`https://rickandmortyapi.com/api/character/${charId}`)
+      return await charactersRes.json()
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
       const favArray = window.localStorage.getItem("r&m-favourites")
       if (favArray) {
         const evalArray: number[] = eval(favArray)
-        setFavourites(evalArray)
+        Promise.all(evalArray.map(id => getCharacters(id))).then(results => {
+          return results
+        }).then(res => setFavChars(res))
       }
     }
   }, [])
@@ -24,10 +35,8 @@ const Favourites: NextPage<{ characters: Character[] }> = ({ characters }) => {
       <>
         <h1 className="text-4xl font-bold text-white text-center mt-2">Favourites</h1>
         <CharactersGrid>
-          {characters.map(character => {
-            if (favourites.includes(character.id)) {
-              return <Card key={character.id} character={character} />
-            }
+          {favChars.map(character => {
+            return <Card key={character.id} character={character} />
           })}
         </CharactersGrid>
       </>
@@ -36,16 +45,6 @@ const Favourites: NextPage<{ characters: Character[] }> = ({ characters }) => {
     return <h1 className="text-4xl font-bold text-white text-center mt-40">Must be logged in to save favourites</h1>
   }
 
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const charactersRes = await fetch("https://rickandmortyapi.com/api/character/")
-  const { results }: GetCharacterResults = await charactersRes.json()
-  return {
-    props: {
-      characters: results
-    }
-  }
 }
 
 export default Favourites
