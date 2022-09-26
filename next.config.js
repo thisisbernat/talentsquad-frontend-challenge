@@ -3,5 +3,9 @@ module.exports = {
   reactStrictMode: true,
   images: {
     domains: ['rickandmortyapi.com'],
+  },
+  experimental: {
+    workerThreads: false,
+    cpus: 1
   }
 }
