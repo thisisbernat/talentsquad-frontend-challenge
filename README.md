@@ -3,6 +3,8 @@ This a frontend app build with Next.js and TypeScript that consumes the [Rick an
 
 This app is deployed at https://rickandmorty-omega-seven.vercel.app/
 
+[![CodeFactor](https://www.codefactor.io/repository/github/thisisbernat/talentsquad-frontend-challenge/badge)](https://www.codefactor.io/repository/github/thisisbernat/talentsquad-frontend-challenge)
+
 ## Background
 The main objective of this project was to keep working with Next.js and TypeScript. It is also my submission for Barcelona's Talent Squad Frontend Challenge.
 
