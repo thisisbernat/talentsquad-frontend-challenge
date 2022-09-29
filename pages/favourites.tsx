@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import type { NextPage } from 'next'
 import CharactersGrid from '../components/CharactersGrid'
 import Card from '../components/Card'
 import { Character } from '../types'
