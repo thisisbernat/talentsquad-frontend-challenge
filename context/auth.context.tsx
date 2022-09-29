@@ -2,7 +2,7 @@ import { createContext, useState, ReactNode } from 'react'
 
 const initialState = {
   isLoggedIn: false,
-  logIn: (username: string) => { },
+  logIn: (_username: string) => { },
   logOut: () => { },
   checkLogStatus: () => { }
 }
